@@ -1,3 +1,7 @@
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { Angular2TokenService } from 'angular2-token';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -13,7 +17,9 @@ import { CooperProvider } from '../providers/cooper/cooper';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    HttpModule,
+    RouterModule
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,8 @@ import { CooperProvider } from '../providers/cooper/cooper';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PersonProvider,
-    CooperProvider
+    CooperProvider,
+    Angular2TokenService
   ]
 })
 export class AppModule {}
