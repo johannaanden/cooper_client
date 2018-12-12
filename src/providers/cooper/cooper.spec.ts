@@ -19,12 +19,12 @@ describe("CooperProvider", () => {
     });
 
     it('assess should return Above average', () => {
-        let person = { age: 17, gender: 'male' };
+        let person = { age: 15, gender: 'male' };
         expect(cooperProvider.assess(person, 2500)).toEqual('Above average');
     });
     
     it('assess should return Average', () => {
-        let person = { age: 32, gender: 'male' };
+        let person = { age: 17, gender: 'male' };
         expect(cooperProvider.assess(person, 2500)).toEqual('Average');
     });
 

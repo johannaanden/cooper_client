@@ -12,7 +12,7 @@ public assessmentMessage: string;
 
   constructor(private cooper: CooperProvider) {}
 
-  doAssessment(distance: number): coid {
+  doAssessment(distance: number): void {
     this.assessmentMessage = this.cooper.assess(this, distance);
   }
 
