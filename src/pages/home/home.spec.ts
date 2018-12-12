@@ -6,7 +6,7 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { PlatformMock, StatusBarMock, SplashScreenMock, NavControllerMock } from "ionic-mocks";
 
 describe("HomePage", () => {
-    let homepage;
+    let homepage, fixture;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
