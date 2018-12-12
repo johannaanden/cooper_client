@@ -43,4 +43,8 @@ describe("HomePage", () => {
         expect(homepage.calculate).toHaveBeenCalled();
     });
 
+    it('should have user array', () => {
+        expect(homepage.user).toEqual({});
+    });
+
 });
