@@ -17,13 +17,13 @@ import { CooperProvider } from '../providers/cooper/cooper';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    HttpModule,
-    RouterModule
+    HomePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
+    RouterModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
