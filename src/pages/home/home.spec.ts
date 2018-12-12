@@ -38,17 +38,13 @@ describe("HomePage", () => {
     });
 
     it('should have user default values', () => {
-        expect(homepage.user).toEqual({ distance: 1000, age: 20 });
+        expect(homepage.user).toEqual({ distance: 1000, age: 20, gender: 'female' });
     });
 
     it('should have calculate function', () => {
         spyOn(homepage, 'calculate');
         homepage.calculate()
         expect(homepage.calculate).toHaveBeenCalled();
-    });
-
-    it('should have user default array', () => {
-        expect(homepage.user).toEqual({ distance: 1000, age: 20 });
     });
 
     it('calculate function should call person provider doAssessment function', inject(
