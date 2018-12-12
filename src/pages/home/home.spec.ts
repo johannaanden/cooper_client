@@ -47,4 +47,8 @@ describe("HomePage", () => {
         expect(homepage.user).toEqual({});
     });
 
+    it('should have calculate function', () => {
+        expect(homepage.calculate).toBeTruthy();
+    });
+
 });
