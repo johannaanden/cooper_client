@@ -17,7 +17,7 @@ export class Page {
     fillInForm(distance, gender, age) {
 
         element(by.css('.text-input')).clear().then(() => {
-            element(by.css('.text-input')).sandKeys(distance);
+            element(by.css('.text-input')).sendKeys(distance);
         })
 
         element(by.css('.select')).click().then(() => {
