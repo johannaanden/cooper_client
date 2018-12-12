@@ -58,7 +58,7 @@ describe("HomePage", () => {
             expect(person.doAssessment).toHaveBeenCalled();
             expect(person.doAssessment).toHaveBeenCalledWith(2500);
             expect(person.age).toEqual(25);
-            expect(person.gender).toEqual('female';)
+            expect(person.gender).toEqual('female');
         }
     ));
 
