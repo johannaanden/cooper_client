@@ -47,8 +47,4 @@ describe("HomePage", () => {
         expect(homepage.user).toEqual({ distance: 1000, age: 20 });
     });
 
-    it('should have calculate function', () => {
-        expect(homepage.calculate).toBeTruthy();
-    });
-
 });
