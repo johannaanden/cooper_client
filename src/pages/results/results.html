@@ -15,4 +15,14 @@
 
 <ion-content padding>
 
+  <ion-card *ngFor="let result of result">
+    <ion-card-header>
+      {{result.created_at | date:'medium'}}
+    </ion-card-header>
+
+    <ion-card-content>
+      Result: {{result.data.message}}
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
