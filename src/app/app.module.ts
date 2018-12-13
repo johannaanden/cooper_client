@@ -14,11 +14,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { PersonProvider } from '../providers/person/person';
 import { CooperProvider } from '../providers/cooper/cooper';
 import { PerformanceDataProvider } from '../providers/performance-data/performance-data';
+import { ResultPage } from '../pages/results/results';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ResultPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { PerformanceDataProvider } from '../providers/performance-data/performan
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ResultPage
   ],
   providers: [
     StatusBar,
