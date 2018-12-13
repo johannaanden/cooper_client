@@ -18,9 +18,13 @@
       <button ion-item (click)="logout()" *ngIf="currentUser">
         Logout {{currentUser.email}}
       </button>
-      
+
       <button ion-item (click)="registerPopUp()"*ngIf="!currentUser">
         Register
+      </button>
+
+      <button ion-item (click)="updatePopUp()" *ngIf="currentUser" icon-start>
+        Change password
       </button>
 
     </ion-list>

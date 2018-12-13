@@ -21,6 +21,14 @@ describe('AppComponent', () => {
         email: 'test@test.com',
         password: 'password',
         passwordConfirmation: 'password',
+        passwordCurrent: 'newpassword',
+        userType: String
+    };
+
+    let updateData = {
+        email: 'test@test.com',
+        password: 'password',
+        passwordConfirmation: 'password',
         userType: String
     };
 
@@ -90,5 +98,18 @@ describe('AppComponent', () => {
         );
 
         component.register(registerData);
+    }));
+
+    it('update method', inject([Angular2TokenService, MockBackend], (tokenService, mockBackend) => {
+
+        mockBackend.connections.subscribe(
+            c => {
+                expect(c.request.getBody()).toEqual(JSON.stringify(updateData));
+                expect(c.request.method).toEqual(RequestMethod.Post);
+                expect(c.request.url).toEqual('https://ja-cooper-api.herokuapp.com/api/v1/auth');
+            }
+        );
+
+        component.register(updateData);
     }));
 });

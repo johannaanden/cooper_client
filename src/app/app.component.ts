@@ -125,6 +125,49 @@ export class MyApp {
     confirm.present();
   }
 
+  updatePopUp() {
+    console.log('update')
+    let confirm = this.alertCtrl.create({
+      title: 'Update',
+      inputs: [
+        {
+          name: 'email',
+          placeholder: 'email'
+        },
+        {
+          name: 'password',
+          placeholder: 'new password',
+          type: 'password'
+        },
+        {
+          name: 'passwordConfirmation',
+          placeholder: 'password confirmation',
+          type: 'password'
+        },
+        {
+          name: 'passwordCurrent',
+          placeholder: 'current password',
+          type: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+          console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Update',
+          handler: data => {
+            this.update(data);
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
   login(credentials) {
     this._tokenService
       .signIn(credentials)
@@ -148,5 +191,14 @@ export class MyApp {
           res => (this.currentUser = res.json().data),
           err => console.log('error')
         );
+  }
+
+  update(credentials) {
+    this._tokenService
+      .updatePassword(credentials)
+      .subscribe(
+        res => (this.currentUser = res.json().data),
+        err => console.error('error')
+     );
   }
 }
