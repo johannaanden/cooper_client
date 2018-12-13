@@ -6,8 +6,8 @@ import { PerformanceDataProvider } from '../../providers/performance-data/perfor
   selector: 'page-results',
   templateUrl: 'results.html',
 })
-export class ResultPage {
-  result = [];
+export class ResultsPage {
+  results = [];
 
   constructor(
     private performanceData: PerformanceDataProvider,
@@ -18,7 +18,7 @@ export class ResultPage {
   ionViewDidLoad() {
     this.performanceData
       .getResults()
-      .subscribe(data => (this.result = data.entries));
+      .subscribe(data => (this.results = data.entries));
   }
 
 }

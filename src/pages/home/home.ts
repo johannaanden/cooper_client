@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { PersonProvider } from '../../providers/person/person';
 import { PerformanceDataProvider } from '../../providers/performance-data/performance-data';
-import { ResultPage }  from "../results/results";
+import { ResultsPage }  from "../results/results";
 
 @Component({
   selector: 'page-home',
@@ -29,7 +29,7 @@ export class HomePage {
   }
 
   showResults() {
-    this.modalCtrl.create(ResultPage).present();
+    this.modalCtrl.create(ResultsPage).present();
   }
 
 }
