@@ -23,13 +23,15 @@ export class HomePage {
     this.person.age = user.age;
     this.person.gender = user.gender;
     this.person.doAssessment(user.distance);
-    this.performanceData
-      .saveData({ performance_data: { data: { message: this.person.assessmentMessage } } })
-      .subscribe(data => console.log(data));
   }
 
   showResults() {
     this.modalCtrl.create(ResultsPage).present();
+  }
+
+  saveResult(){
+    let save = this.performanceData.saveData({ performance_data: { data: { message: this.person.assessmentMessage } } });
+      save.subscribe(data => console.log(data));
   }
 
 }
