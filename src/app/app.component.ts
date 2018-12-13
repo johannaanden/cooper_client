@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   templateUrl: 'app.html'
@@ -86,6 +87,44 @@ export class MyApp {
     confirm.present();
   }
 
+  registerPopUp() {
+    console.log('register')
+    let confirm = this.alertCtrl.create({
+      title: 'Register',
+      inputs: [
+        {
+          name: 'email',
+          placeholder: 'email'
+        },
+        {
+          name: 'password',
+          placeholder: 'password',
+          type: 'password'
+        },
+        {
+          name: 'passwordConfirmation',
+          placeholder: 'password confirmation',
+          type: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Register',
+          handler: data => {
+            this.register(data);
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
   login(credentials) {
     this._tokenService
       .signIn(credentials)
@@ -100,5 +139,14 @@ export class MyApp {
       .signOut()
       .subscribe(res => console.log(res), err => console.error('error'));
     this.currentUser = undefined;
+  }
+
+  register(credentials) {
+    this._tokenService
+      .registerAccount(credentials)
+        .subscribe(
+          res => (this.currentUser = res.json().data),
+          err => console.log('error')
+        );
   }
 }

@@ -17,6 +17,13 @@ describe('AppComponent', () => {
         userType: String
     };
 
+    let registerData = {
+        email: 'test@test.com',
+        password: 'password',
+        passwordConfirmation: 'password',
+        userType: String
+    };
+
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [MyApp],
@@ -70,5 +77,18 @@ describe('AppComponent', () => {
         );
 
         component.logout();
+    }));
+
+    it('register method', inject([Angular2TokenService, MockBackend], (tokenService, mockBackend) => {
+
+        mockBackend.connections.subscribe(
+            c => {
+                expect(c.request.getBody()).toEqual(JSON.stringify(registerData));
+                expect(c.request.method).toEqual(RequestMethod.Post);
+                expect(c.request.url).toEqual('https://ja-cooper-api.herokuapp.com/api/v1/auth');
+            }
+        );
+
+        component.register(registerData);
     }));
 });
