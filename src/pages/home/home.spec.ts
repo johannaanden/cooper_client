@@ -6,6 +6,9 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { PlatformMock, StatusBarMock, SplashScreenMock, NavControllerMock } from "ionic-mocks";
 import { PersonProvider } from "../../providers/person/person";
 import { CooperProvider } from "../../providers/cooper/cooper";
+import { PerformanceDataProvider } from './../../providers/performance-data/performance-data';
+import { Angular2TokenService } from 'angular2-token';
+import { HttpModule } from '@angular/http';
 
 describe("HomePage", () => {
     let homepage, fixture;
@@ -22,7 +25,10 @@ describe("HomePage", () => {
                 { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() },
                 { provide: NavController, useFactory: () => NavControllerMock.instance() },
                 PersonProvider,
-                CooperProvider
+                CooperProvider,
+                PerformanceDataProvider,
+                Angular2TokenService,
+                HttpModule
             ]
         }).compileComponents();
     }));
