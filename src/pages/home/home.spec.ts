@@ -8,7 +8,8 @@ import { PersonProvider } from "../../providers/person/person";
 import { CooperProvider } from "../../providers/cooper/cooper";
 import { PerformanceDataProvider } from './../../providers/performance-data/performance-data';
 import { Angular2TokenService } from 'angular2-token';
-import { HttpModule } from '@angular/http';
+import { Http, BaseRequestOptions } from '@angular/http';
+import { MockBackend } from '@angular/http/testing'
 
 describe("HomePage", () => {
     let homepage, fixture;
@@ -20,6 +21,15 @@ describe("HomePage", () => {
             ],
             imports: [IonicModule.forRoot(HomePage)],
             providers: [
+                BaseRequestOptions,
+                MockBackend,
+                { 
+                    provide: Http, 
+                    useFactory: (backend, defaultOptions) => {
+                        return new Http(backend, defaultOptions)
+                    },
+                    deps: [MockBackend, BaseRequestOptions]
+                },
                 { provide: Platform, useFactory: () => PlatformMock.instance() },
                 { provide: StatusBar, useFactory: () => StatusBarMock.instance() },
                 { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() },
@@ -27,8 +37,7 @@ describe("HomePage", () => {
                 PersonProvider,
                 CooperProvider,
                 PerformanceDataProvider,
-                Angular2TokenService,
-                HttpModule
+                Angular2TokenService
             ]
         }).compileComponents();
     }));
