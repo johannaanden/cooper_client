@@ -31,7 +31,7 @@ export class ResultsPage {
         this.labels.forEach(label => {
           this.data.push(this.getCount(this.results, label));
         })
-        
+
       });
   }
 
@@ -54,6 +54,14 @@ export class ResultsPage {
     })
 
     return count;
+  }
+
+  chartClicked(event: any): void {
+    console.log(event);
+  }
+
+  chartHovered(event: any): void {
+    console.log(event);
   }
 
 }
